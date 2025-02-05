@@ -19,8 +19,8 @@ logger.addHandler(handler)
 load_dotenv()
 
 # Get environment variables
-# TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-TOKEN = os.getenv('TEST_TELEGRAM_BOT_TOKEN')
+# TOKEN = os.getenv('TEST_TELEGRAM_BOT_TOKEN') # used to test 
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 AUTO_DEV_API_KEY = os.getenv('AUTO_DEV_API_KEY')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
