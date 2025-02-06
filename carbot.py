@@ -164,8 +164,13 @@ async def get_autodev_car(update: Update, target_price: int, search_query: str =
         logger.info(f"Auto.dev API returned {record_count} records")
         
         if record_count == 0:
-            logger.info("No records found matching the criteria")
-            await update.message.reply_text("Sorry, I couldn't find any cars matching your criteria. Try adjusting your search parameters.")
+            if target_price < 1000:
+                # return betmore.png
+                await update.message.reply_photo(photo='betmore.png')
+            elif target_price > 25000000:
+                await update.message.reply_photo(photo='betless.png')
+            else:
+                await update.message.reply_text("Sorry, I couldn't find any cars matching your criteria. Try adjusting your search parameters.")
             return
 
         # Log first few records for debugging
