@@ -167,12 +167,14 @@ async def get_autodev_car(update: Update, target_price: int, search_query: str =
             if target_price < 1000:
                 # return betmore.png
                 await update.message.reply_photo(photo='betmore.png')
+                return
             elif target_price > 25000000:
                 await update.message.reply_photo(photo='betless.png')
+                return
             else:
                 await update.message.reply_text("Sorry, I couldn't find any cars matching your criteria. Try adjusting your search parameters.")
-        return
-    
+                return
+        
         # Log first few records for debugging
         if record_count > 0:
             logger.info("First record details:")
