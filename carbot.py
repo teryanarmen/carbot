@@ -165,11 +165,12 @@ async def get_autodev_car(update: Update, target_price: int, search_query: str =
         
         if record_count == 0:
             if target_price < 1000:
-                # return betmore.png
-                await update.message.reply_photo(photo='./betmore.png')
+                with open('./betless.jpeg', 'rb') as photo:
+                    await update.message.reply_photo(photo=photo)
                 return
             elif target_price > 25000000:
-                await update.message.reply_photo(photo='./betless.png')
+                with open('./betless.jpeg', 'rb') as photo:
+                    await update.message.reply_photo(photo=photo)
                 return
             else:
                 await update.message.reply_text("Sorry, I couldn't find any cars matching your criteria. Try adjusting your search parameters.")
